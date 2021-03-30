@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import {Button, Container, Heading, VStack} from "@chakra-ui/react"
+
 // starts with use
 // component must be uppercase
 // invoke inside function/component body
@@ -21,10 +23,13 @@ const UseStateBasics = () => {
 
   return (
     <React.Fragment>
-      <h1>{text}</h1>
-      <button type='button' className='btn' onClick={handleClick}>
+    <VStack >
+      <Heading>{text}</Heading>
+      <Button type='button' className='btn' onClick={handleClick}>
         change title
-      </button>
+      </Button>
+      
+      </VStack>
     </React.Fragment>
   );
 };

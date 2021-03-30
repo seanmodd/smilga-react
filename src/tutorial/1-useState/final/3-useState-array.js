@@ -1,3 +1,5 @@
+import { Button } from '@chakra-ui/button';
+import { Heading, VStack } from '@chakra-ui/layout';
 import React from 'react';
 import { data } from '../../../data';
 const UseStateArray = () => {
@@ -9,18 +11,22 @@ const UseStateArray = () => {
   };
   return (
     <>
+    <VStack>
       {people.map((person) => {
         const { id, name } = person;
         return (
-          <div key={id} className='item'>
-            <h4>{name}</h4>
-            <button onClick={() => removeItem(id)}>remove</button>
-          </div>
+          <>
+          <VStack bg="red.100" key={id} className='item'>
+            <Heading textColor="blue.500">{name}</Heading>
+            <Button onClick={() => removeItem(id)}>remove</Button>
+          </VStack>
+          </>
         );
       })}
-      <button className='btn' onClick={() => setPeople([])}>
+      <Button className='btn' onClick={() => setPeople([])}>
         clear items
-      </button>
+      </Button>
+      </VStack>
     </>
   );
 };
