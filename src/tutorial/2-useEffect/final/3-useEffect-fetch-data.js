@@ -1,3 +1,5 @@
+import { Button } from '@chakra-ui/button';
+import { Box, Heading } from '@chakra-ui/layout';
 import React, { useState, useEffect } from 'react';
 
 const url = 'https://api.github.com/users';
@@ -19,6 +21,10 @@ const UseEffectFetchData = () => {
   }, []);
   return (
     <>
+ 
+  <Heading color="pink.300" my="35px" fontSize="xl">Fetch Data</Heading>
+  <>
+  </> 
       <h3>github users</h3>
       <ul className='users'>
         {users.map((user) => {
@@ -26,10 +32,10 @@ const UseEffectFetchData = () => {
           return (
             <li key={id}>
               <img src={avatar_url} alt={login} />
-              <div>
-                <h4>{login}</h4>
+              <Box as="button">
+                <Heading fontSize="xl" textColor="blue.500">{login}</Heading>
                 <a href={html_url}>profile</a>
-              </div>
+              </Box>
             </li>
           );
         })}

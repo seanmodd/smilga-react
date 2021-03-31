@@ -1,3 +1,5 @@
+import { Button } from '@chakra-ui/button';
+import { Heading } from '@chakra-ui/layout';
 import React, { useState } from 'react';
 
 const UseStateObject = () => {
@@ -18,12 +20,12 @@ const UseStateObject = () => {
 
   return (
     <>
-      <h3>{person.name}</h3>
-      <h3>{person.age}</h3>
-      <h4>{person.message}</h4>
-      <button className='btn' onClick={changeMessage}>
+      <Heading fontSize="xl">{person.name}</Heading>
+      <Heading fontSize="xl">{person.age}</Heading>
+      <Heading  fontSize="xl" textColor="green.500">{person.message}</Heading>
+      <Button bg="blue.500" className='btn' onClick={changeMessage}>
         change message
-      </button>
+      </Button>
     </>
   );
 };

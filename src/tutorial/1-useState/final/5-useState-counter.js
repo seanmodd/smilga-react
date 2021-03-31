@@ -1,3 +1,5 @@
+import { Button } from '@chakra-ui/button';
+import { Heading, Text } from '@chakra-ui/layout';
 import React, { useState } from 'react';
 
 const UseStateCounter = () => {
@@ -19,24 +21,24 @@ const UseStateCounter = () => {
   return (
     <>
       <section style={{ margin: '4rem 0' }}>
-        <h2>regular counter</h2>
-        <h1>{value}</h1>
-        <button className='btn' onClick={() => setValue(value - 1)}>
+        <Text>REGULAR COUNTER</Text>
+        <Heading>{value}</Heading>
+        <Button className='btn' onClick={() => setValue(value - 1)}>
           decrease
-        </button>
-        <button className='btn' onClick={reset}>
+        </Button>
+        <Button className='btn' onClick={reset}>
           reset
-        </button>
-        <button className='btn' onClick={() => setValue(value + 1)}>
+        </Button>
+        <Button className='btn' onClick={() => setValue(value + 1)}>
           increase
-        </button>
+        </Button>
       </section>
       <section style={{ margin: '4rem 0' }}>
-        <h2>more complex counter</h2>
-        <h1>{value}</h1>
-        <button className='btn' onClick={complexIncrease}>
+        <Text>MORE COMPLEX COUNTER</Text>
+        <Heading>{value}</Heading>
+        <Button className='btn' onClick={complexIncrease}>
           increase later
-        </button>
+        </Button>
       </section>
     </>
   );

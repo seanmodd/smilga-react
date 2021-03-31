@@ -1,4 +1,6 @@
+import { Flex, Heading } from '@chakra-ui/layout';
 import React, { useState, useEffect } from 'react';
+
 const url = 'https://api.github.com/users/QuincyLarson';
 const MultipleReturns = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -10,11 +12,10 @@ const MultipleReturns = () => {
       .then((resp) => {
         if (resp.status >= 200 && resp.status <= 299) {
           return resp.json();
-        } else {
-          setIsLoading(false);
-          setIsError(true);
-          throw new Error(resp.statusText);
         }
+        setIsLoading(false);
+        setIsError(true);
+        throw new Error(resp.statusText);
       })
       .then((user) => {
         const { login } = user;
@@ -26,22 +27,24 @@ const MultipleReturns = () => {
 
   if (isLoading) {
     return (
-      <div>
+      <Flex>
         <h1>Loading...</h1>
-      </div>
+      </Flex>
     );
   }
   if (isError) {
     return (
-      <div>
+      <Flex>
         <h1>Error....</h1>
-      </div>
+      </Flex>
     );
   }
   return (
-    <div>
-      <h1>{user}</h1>
-    </div>
+    <Flex>
+      <Heading fontSize="xl" textColor="red.500">
+        {user}
+      </Heading>
+    </Flex>
   );
 };
 

@@ -1,3 +1,4 @@
+import { Heading } from '@chakra-ui/layout';
 import React, { useState, useEffect } from 'react';
 
 // cleanup function
@@ -21,8 +22,11 @@ const UseEffectCleanup = () => {
   console.log('render');
   return (
     <>
-      <h1>window</h1>
-      <h2>{size} PX</h2>
+     <>
+  <Heading color="pink.300" my="35px" fontSize="xl">UseEffect Cleanup Starter</Heading>
+  </> 
+      <Heading fontSize="xl">window</Heading>
+      <Heading fontSize="xl">{size} PX</Heading>
     </>
   );
 };

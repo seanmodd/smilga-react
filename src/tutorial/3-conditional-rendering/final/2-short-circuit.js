@@ -1,3 +1,4 @@
+import { Button } from '@chakra-ui/button';
 import React, { useState } from 'react';
 // short-circuit evaluation
 // ternary operator
@@ -14,9 +15,9 @@ const ShortCircuit = () => {
       <h1>value : {secondValue}</h1> */}
       {/* {if(){console.log('hello world')}} */}
       <h1>{text || 'john doe'}</h1>
-      <button className='btn' onClick={() => setIsError(!isError)}>
+      <Button my="30px" className='btn' onClick={() => setIsError(!isError)}>
         toggle error
-      </button>
+      </Button>
       {isError && <h1>Error...</h1>}
       {isError ? (
         <p>there is an error...</p>

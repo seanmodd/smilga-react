@@ -1,4 +1,8 @@
+import { Button } from '@chakra-ui/button';
+import { FormControl, FormLabel} from '@chakra-ui/form-control';
+import { Flex } from '@chakra-ui/layout';
 import React, { useState } from 'react';
+import { Input } from '@chakra-ui/react';
 // JS
 // const input = document.getElementById('myText');
 // const inputValue = input.value
@@ -23,11 +27,12 @@ const ControlledInputs = () => {
   };
   return (
     <>
-      <article className='form'>
-        <form>
+<FormControl p="20px" bg="blue.100" borderRadius="2xl" boxShadow="dark-lg">
+        <FormControl bg="blue.100">
           <div className='form-control'>
-            <label htmlFor='firstName'>Name : </label>
-            <input
+            <FormLabel color="black" htmlFor='firstName'>Name : </FormLabel>
+            <Input
+            bg="white"
               type='text'
               id='firstName'
               name='firstName'
@@ -36,8 +41,9 @@ const ControlledInputs = () => {
             />
           </div>
           <div className='form-control'>
-            <label htmlFor='email'>Email : </label>
-            <input
+            <FormLabel textColor="black" htmlFor='email'>Email : </FormLabel>
+            <Input
+              bg="white"
               type='email'
               id='email'
               name='email'
@@ -45,9 +51,10 @@ const ControlledInputs = () => {
               onChange={handleChange}
             />
           </div>
-          <div className='form-control'>
-            <label htmlFor='age'>Age : </label>
-            <input
+          <div bg="gray.300" className='form-control'>
+            <FormLabel color="black" htmlFor='age'>Age : </FormLabel>
+            <Input
+            bg="white"
               type='number'
               id='age'
               name='age'
@@ -55,11 +62,11 @@ const ControlledInputs = () => {
               onChange={handleChange}
             />
           </div>
-          <button type='submit' className='btn' onClick={handleSubmit}>
+          <Button type='submit' className='btn' bg="gray.800" onClick={handleSubmit}>
             add person
-          </button>
-        </form>
-      </article>
+          </Button>
+        </FormControl>
+      </FormControl>
       <article>
         {people.map((person) => {
           const { id, firstName, email, age } = person;

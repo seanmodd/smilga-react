@@ -1,3 +1,6 @@
+import { Button } from '@chakra-ui/button';
+import { Heading } from '@chakra-ui/layout';
+import { FormControl, FormLabel } from '@chakra-ui/form-control';
 import React, { useState } from 'react';
 // JS
 // const input = document.getElementById('myText');
@@ -27,10 +30,13 @@ const ControlledInputs = () => {
   };
   return (
     <>
-      <article>
-        <form className='form' onSubmit={handleSubmit}>
+ <>
+  <Heading color="pink.300" my="35px" fontSize="xl">Multiple Inputs</Heading>
+  </> 
+      <FormControl borderRadius="2xl" boxShadow="dark-lg" bg="blue.100">
+        <FormControl borderRadius="2xl" bg="blue.100" className='form' onSubmit={handleSubmit}>
           <div className='form-control'>
-            <label htmlFor='firstName'>Name : </label>
+            <FormLabel color="black" htmlFor='firstName'>Name : </FormLabel>
             <input
               type='text'
               id='firstName'
@@ -40,7 +46,7 @@ const ControlledInputs = () => {
             />
           </div>
           <div className='form-control'>
-            <label htmlFor='email'>Email : </label>
+            <FormLabel color="black" htmlFor='email'>Email : </FormLabel>
             <input
               type='email'
               id='email'
@@ -49,8 +55,8 @@ const ControlledInputs = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <button type='submit'>add person</button>
-        </form>
+          <Button type='submit'>add person</Button>
+        </FormControl>
         {people.map((person, index) => {
           const { id, firstName, email } = person;
           return (
@@ -60,7 +66,7 @@ const ControlledInputs = () => {
             </div>
           );
         })}
-      </article>
+      </FormControl>
     </>
   );
 };

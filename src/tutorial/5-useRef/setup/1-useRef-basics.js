@@ -1,3 +1,4 @@
+import { Heading } from '@chakra-ui/layout';
 import React, { useEffect, useRef } from 'react';
 
 // preserves value
@@ -5,7 +6,12 @@ import React, { useEffect, useRef } from 'react';
 // target DOM nodes/elements
 
 const UseRefBasics = () => {
-  return <h2>useRef</h2>;
+  return <>
+  
+  <Heading color="pink.300" my="35px" fontSize="xl">useRef Basics Starter</Heading>
+  
+  
+  </>;
 };
 
 export default UseRefBasics;

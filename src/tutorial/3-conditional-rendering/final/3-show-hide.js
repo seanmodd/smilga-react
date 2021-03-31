@@ -1,14 +1,19 @@
+import { Button } from '@chakra-ui/button';
+import { VStack } from '@chakra-ui/layout';
 import React, { useState, useEffect } from 'react';
 
 const ShowHide = () => {
   const [show, setShow] = useState(false);
   return (
     <>
-      <button className='btn' onClick={() => setShow(!show)}>
+    <VStack spacing="50px">
+      <Button my="50px" className='btn' onClick={() => setShow(!show)}>
         show/hide
-      </button>
+      </Button>
       {show && <Item />}
+      </VStack>
     </>
+    
   );
 };
 
@@ -25,10 +30,10 @@ const Item = () => {
   }, []);
 
   return (
-    <div style={{ marginTop: '2rem' }}>
+    <VStack spacing="20px" style={{ marginTop: '2rem' }}>
       <h1>Window</h1>
       <h2>size : {size}</h2>
-    </div>
+    </VStack>
   );
 };
 

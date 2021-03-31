@@ -1,3 +1,5 @@
+import { Button } from '@chakra-ui/button';
+import { Heading } from '@chakra-ui/layout';
 import React, { useState, useEffect } from 'react';
 // by default runs after every re-render
 // cleanup function
@@ -14,10 +16,11 @@ const UseEffectBasics = () => {
   console.log('render component');
   return (
     <>
-      <h1>{value}</h1>
-      <button className='btn' onClick={() => setValue(value + 1)}>
+      <Heading color="pink.300" mb="35px" fontSize="xl">useEffect Basics</Heading>
+      <Heading fontSize="xl">{value}</Heading>
+      <Button className='btn' onClick={() => setValue(value + 1)}>
         click me
-      </button>
+      </Button>
     </>
   );
 };

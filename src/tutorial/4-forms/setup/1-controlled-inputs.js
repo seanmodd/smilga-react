@@ -1,3 +1,4 @@
+import { Heading } from '@chakra-ui/layout';
 import React, { useState } from 'react';
 // JS
 // const input = document.getElementById('myText');
@@ -6,7 +7,9 @@ import React, { useState } from 'react';
 // value, onChange
 
 const ControlledInputs = () => {
-  return <h1>controlled inputs</h1>;
+  return <>
+  <Heading color="pink.300" my="35px" fontSize="xl">Controlled Inputs</Heading>
+  </> 
 };
 
 export default ControlledInputs;
