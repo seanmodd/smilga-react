@@ -1,7 +1,8 @@
 import { Button } from '@chakra-ui/button';
-import { Heading } from '@chakra-ui/layout';
+import { Flex, Heading, Text } from '@chakra-ui/layout';
 import { FormControl, FormLabel } from '@chakra-ui/form-control';
 import React, { useState } from 'react';
+import { MyHeading } from '../../../MyHeading';
 // JS
 // const input = document.getElementById('myText');
 // const inputValue = input.value
@@ -10,63 +11,62 @@ import React, { useState } from 'react';
 // dynamic object keys
 
 const ControlledInputs = () => {
-  const [firstName, setFirstName] = useState('');
-  const [email, setEmail] = useState('');
+  const [person, setPerson] = useState({ firstName: '', email: '', age: '' });
   const [people, setPeople] = useState([]);
 
+  const handleChange = (e) => {
+    const { name } = e.target;
+    const { value } = e.target;
+    setPerson({ ...person, [name]: value });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (firstName && email) {
-      const person = { id: new Date().getTime().toString(), firstName, email };
-      console.log(person);
-      setPeople((people) => {
-        return [...people, person];
-      });
-      setFirstName('');
-      setEmail('');
-    } else {
-      console.log('empty values');
+    if (person.firstName && person.email && person.age) {
+      const newPerson = { ...person, id: new Date().getTime().toString() };
+      setPeople([...people, newPerson]);
+      setPerson({ firstName: '', email: '', age: '' });
     }
   };
   return (
     <>
- <>
-  <Heading color="pink.300" my="35px" fontSize="xl">Multiple Inputs</Heading>
-  </> 
-      <FormControl borderRadius="2xl" boxShadow="dark-lg" bg="blue.100">
-        <FormControl borderRadius="2xl" bg="blue.100" className='form' onSubmit={handleSubmit}>
-          <div className='form-control'>
-            <FormLabel color="black" htmlFor='firstName'>Name : </FormLabel>
-            <input
-              type='text'
-              id='firstName'
-              name='firstName'
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-            />
+      <MyHeading>Multiple Inputs</MyHeading>
+      <article>
+        <form className="form">
+          <div className="form-control">
+            <label color="black" htmlFor="firstName">
+              Name :{' '}
+            </label>
+            <input type="text" id="firstName" name="firstName" value={person.firstName} onChange={handleChange} />
           </div>
-          <div className='form-control'>
-            <FormLabel color="black" htmlFor='email'>Email : </FormLabel>
-            <input
-              type='email'
-              id='email'
-              name='email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+          <div className="form-control">
+            <label color="black" htmlFor="email">
+              Email :{' '}
+            </label>
+            <input type="email" id="email" name="email" value={person.email} onChange={handleChange} />
           </div>
-          <Button type='submit'>add person</Button>
-        </FormControl>
-        {people.map((person, index) => {
-          const { id, firstName, email } = person;
-          return (
-            <div className='item' key={id}>
-              <h4>{firstName}</h4>
-              <p>{email}</p>
-            </div>
-          );
-        })}
-      </FormControl>
+          <div className="form-control">
+            <label color="black" htmlFor="age">
+              Age :{' '}
+            </label>
+            <input type="text" id="age" name="age" value={person.age} onChange={handleChange} />
+          </div>
+          <Button onClick={handleSubmit} type="submit">
+            add person
+          </Button>
+        </form>
+        <article>
+          {people.map((person) => {
+            const { id, firstName, email, age } = person;
+            return (
+              <div key={id} className="item">
+                <h4>{firstName}</h4>
+                <p>{email}</p>
+                <p>{age}</p>
+              </div>
+            );
+          })}
+        </article>
+      </article>
     </>
   );
 };

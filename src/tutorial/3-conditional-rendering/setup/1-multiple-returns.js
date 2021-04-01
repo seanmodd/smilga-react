@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
-import { Heading } from '@chakra-ui/layout';
+import { Heading, Text } from '@chakra-ui/layout';
 import React, { useState, useEffect } from 'react';
+import { MyHeading, MyText } from '../../../MyHeading';
 
 const url = 'https://api.github.com/users/QuincyLarson';
 const MultipleReturns = () => {
@@ -35,9 +36,9 @@ const MultipleReturns = () => {
   }
   return (
     <>
-      <Heading color="pink.300" my="35px" fontSize="xl">
-        {user}
-      </Heading>
+      <MyHeading>Multiple Returns Starter</MyHeading>
+
+      <MyText>{user}</MyText>
     </>
   );
 };

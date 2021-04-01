@@ -6,14 +6,13 @@ const ShowHide = () => {
   const [show, setShow] = useState(false);
   return (
     <>
-    <VStack spacing="50px">
-      <Button my="50px" className='btn' onClick={() => setShow(!show)}>
-        show/hide
-      </Button>
-      {show && <Item />}
+      <VStack spacing="50px">
+        <Button my="50px" className="btn" onClick={() => setShow(!show)}>
+          show/hide
+        </Button>
+        {show && <Item />}
       </VStack>
     </>
-    
   );
 };
 
