@@ -11,13 +11,20 @@ import PropDrillingStarter from './tutorial/7-prop-drilling/setup/1-prop-drillin
 import PropDrilling from './tutorial/7-prop-drilling/final/1-prop-drilling';
 import UseRefBasics from './tutorial/5-useRef/final/1-useRef-basics';
 import { MyHeading } from './MyHeading';
+import UseStateArray from './tutorial/1-useState/setup/3-useState-array';
 
 function App() {
   return (
     <div>
-      <HStack spacing="50px" align="start" justify="space-around">
+      <VStack>
+        <Heading>useState Array Example</Heading>
+        <UseStateArray />
+      </VStack>
+      {/* <HStack spacing="50px" align="start" justify="space-around">
         <VStack py="100px" divider={<StackDivider borderColor="yellow.200" />}>
-          <Heading className="sean">4-Forms</Heading>
+          <Heading color="black" className="sean">
+            4-Forms
+          </Heading>
           <VStack divider={<StackDivider borderColor="gray.200" />} my={10}>
             <ControlledInputsStarter />
             <MultipleInputsStarter />
@@ -44,7 +51,7 @@ function App() {
             <PropDrilling />
           </VStack>
         </VStack>
-      </HStack>
+      </HStack> */}
     </div>
   );
 }
